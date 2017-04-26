@@ -59,7 +59,8 @@ class Router
   def run(req, res)
     matching_route = match(req)
     if matching_route
-      res.status = 404
+      matching_route.run(req, res)
+      res.status = 200
     else
       res.status = 404
     end
